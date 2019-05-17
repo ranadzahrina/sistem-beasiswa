@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package pendaftaran;
 
 import java.beans.PropertyChangeListener;
@@ -18,10 +13,6 @@ import javax.persistence.NamedQuery;
 import javax.persistence.Table;
 import javax.persistence.Transient;
 
-/**
- *
- * @author User
- */
 @Entity
 @Table(name = "data_mahasiswa", catalog = "tubes_PBO", schema = "")
 @NamedQueries({
@@ -78,7 +69,7 @@ public class DataMahasiswa implements Serializable {
     private int kodePos;
     @Basic(optional = false)
     @Column(name = "telepon")
-    private int telepon;
+    private String telepon;
     @Basic(optional = false)
     @Column(name = "tempat_tinggal")
     private String tempatTinggal;
@@ -121,7 +112,7 @@ public class DataMahasiswa implements Serializable {
     private int kodeposOrtu;
     @Basic(optional = false)
     @Column(name = "telpon_ortu")
-    private int telponOrtu;
+    private String telponOrtu;
     @Basic(optional = false)
     @Column(name = "jumlah_anak")
     private int jumlahAnak;
@@ -133,7 +124,7 @@ public class DataMahasiswa implements Serializable {
         this.nim = nim;
     }
 
-    public DataMahasiswa(Integer nim, String nama, String prodi, String ttl, String jenisKelamin, String alamat, int kodePos, int telepon, String tempatTinggal, String agama, String status, int semester, float ipk, String namaAyah, String kerjaAyah, int gajiAyah, String namaIbu, String kerjaIbu, int gajiIbu, String alamatOrtu, int kodeposOrtu, int telponOrtu, int jumlahAnak) {
+    public DataMahasiswa(Integer nim, String nama, String prodi, String ttl, String jenisKelamin, String alamat, int kodePos, String telepon, String tempatTinggal, String agama, String status, int semester, float ipk, String namaAyah, String kerjaAyah, int gajiAyah, String namaIbu, String kerjaIbu, int gajiIbu, String alamatOrtu, int kodeposOrtu, String telponOrtu, int jumlahAnak) {
         this.nim = nim;
         this.nama = nama;
         this.prodi = prodi;
@@ -229,12 +220,12 @@ public class DataMahasiswa implements Serializable {
         changeSupport.firePropertyChange("kodePos", oldKodePos, kodePos);
     }
 
-    public int getTelepon() {
+    public String getTelepon() {
         return telepon;
     }
 
-    public void setTelepon(int telepon) {
-        int oldTelepon = this.telepon;
+    public void setTelepon(String telepon) {
+        String oldTelepon = this.telepon;
         this.telepon = telepon;
         changeSupport.firePropertyChange("telepon", oldTelepon, telepon);
     }
@@ -369,12 +360,12 @@ public class DataMahasiswa implements Serializable {
         changeSupport.firePropertyChange("kodeposOrtu", oldKodeposOrtu, kodeposOrtu);
     }
 
-    public int getTelponOrtu() {
+    public String getTelponOrtu() {
         return telponOrtu;
     }
 
-    public void setTelponOrtu(int telponOrtu) {
-        int oldTelponOrtu = this.telponOrtu;
+    public void setTelponOrtu(String telponOrtu) {
+        String oldTelponOrtu = this.telponOrtu;
         this.telponOrtu = telponOrtu;
         changeSupport.firePropertyChange("telponOrtu", oldTelponOrtu, telponOrtu);
     }
